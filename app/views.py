@@ -31,11 +31,12 @@ def about():
 def contact():
     form = Contactform()
     if request.method == 'POST':
-        msg = Message(request.form['subject'], sender=(request.form['name'],request.form['email']),recipients=["a130cd643f-582c88@inbox.mailtrap.io"])
-        msg.body = request.form['message']
-        mail.send(msg)  
-        flash('Message sent')
-        return redirect(url_for("home"))
+        if four.validate_on_submit():
+            msg = Message(request.form['subject'], sender=(request.form['name'],request.form['email']),recipients=["a130cd643f-582c88@inbox.mailtrap.io"])
+            msg.body = request.form['message']
+            mail.send(msg)  
+            flash('Message sent')
+            return redirect(url_for("home"))
         
     return render_template('contact.html',form=form)
 
