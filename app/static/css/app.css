@@ -1,3 +1,18 @@
 body {
     padding-top: 5rem;
+    
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
+.form-child{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+    width: 75%;
 }

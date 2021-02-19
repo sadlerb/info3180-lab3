@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ {% extends 'base.html' %} 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>INFO2180 Lab 2</title>
+</head>
+<body>
+{% block main %}
+    <main>
+        <form method='POST' action="{{url_for('contact')}}">
+            <div class=form-child>
+                {{ form.csrf_token }}
+                {{ form.name.label }}
+                {{ form.name(size=50) }}
+            </div>
+
+            <div class=form-child>
+                {{ form.email.label }}
+                {{ form.email(size=50) }}
+            </div>
+            <div class=form-child>
+                {{ form.subject.label }}
+                {{ form.subject(size=50) }}
+            </div>
+            <div class=form-child>
+                {{ form.message.label }}
+                {{ form.message(cols='40',rows='10') }}
+            </div>
+            <div class="form-button"><button type="submit">Submit</button></div>
+            
+        </form>
+        </main>
+{% endblock %} 
+</html>
