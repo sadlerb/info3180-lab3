@@ -31,7 +31,7 @@ def about():
 def contact():
     form = Contactform()
     if request.method == 'POST':
-        if four.validate_on_submit():
+        if form.validate_on_submit():
             msg = Message(request.form['subject'], sender=(request.form['name'],request.form['email']),recipients=["a130cd643f-582c88@inbox.mailtrap.io"])
             msg.body = request.form['message']
             mail.send(msg)  
